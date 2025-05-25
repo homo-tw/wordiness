@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04
 
 # 基本工具
 RUN apt-get update && apt-get install -y \
