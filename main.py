@@ -3,7 +3,10 @@ from transcriber import transcribe
 import os
 
 app = Flask(__name__)
-
+@app.route("/", methods=["GET"])
+def hello():
+    return "Hello, world!", 200
+    
 @app.route("/transcribe", methods=["POST"])
 def handle_transcribe():
     if "file" not in request.files:
