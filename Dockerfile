@@ -18,4 +18,4 @@ COPY . /app
 WORKDIR /app
 
 # 啟動
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "main:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "main:app", "--timeout", "3000"]
