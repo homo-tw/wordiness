@@ -1,9 +1,13 @@
 FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # 基本工具
 RUN apt-get update && apt-get install -y \
-    python3-pip ffmpeg git && \
-    ln -s /usr/bin/python3 /usr/bin/python
+    python3-pip ffmpeg git tzdata && \
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    ln -fs /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
 
 # Python 套件
 COPY requirements.txt .
